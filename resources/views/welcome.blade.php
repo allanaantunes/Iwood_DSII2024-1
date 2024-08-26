@@ -63,6 +63,9 @@
             <li class="nav-item">
                         <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
             </li>
+            <li class="nav-item">
+                        <a class="nav-link" href="{{ url('usuario') }}">Usuario</a>
+            </li>
         </ul>
         <!--<ul class="navbar-nav flex-row">
             <li class="nav-item">
