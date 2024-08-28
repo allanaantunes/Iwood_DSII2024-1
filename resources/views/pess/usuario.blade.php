@@ -22,8 +22,8 @@
     <input type="hidden" name="id" value="@if (!empty($usuario->id)) {{ $usuario->id }}@else{{ '' }} @endif"><br>
 
     <div class="mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input type="text" name="nome" id="nome" class="form-control" value="@if (!empty($usuario->nome)) {{ $usuario->nome }}@elseif (!empty(old('nome'))){{ old('nome') }}@else{{ '' }} @endif">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" name="name" id="name" class="form-control" value="@if (!empty($usuario->name)) {{ $usuario->name }}@elseif (!empty(old('name'))){{ old('name') }}@else{{ '' }} @endif">
     </div>
 
     <div class="mb-3">
@@ -34,15 +34,6 @@
     <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
         <input type="password" name="senha" id="senha" class="form-control">
-    </div>
-
-    <div class="mb-3">
-        <label for="tipousuario_id" class="form-label">Tipo de Usuário</label>
-        <select name="tipousuario_id" id="tipousuario_id" class="form-select">
-            @foreach ($tiposusuarios as $item)
-                <option value="{{ $item->id }}" @if (!empty($usuario->tipousuario_id) && $usuario->tipousuario_id == $item->id) selected @endif>{{ $item->nome }}</option>
-            @endforeach
-        </select>
     </div>
 
     <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
