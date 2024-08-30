@@ -34,10 +34,9 @@ class ServicoController extends Controller
             'nome' => "required|max:100",
             'contato' => "nullable",
             'email' => "required|max:200",
-            'valor_estimado' => "nullable",
             'detalhamento' => "required|max:300",
-            
-            
+
+
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -52,7 +51,6 @@ class ServicoController extends Controller
                 'contato' => $request->contato,
                 'email' => $request->email,
                 'detalhamento' => $request->detalhamento,
-                'valor_estimado'=> $request->valor_estimado,
             ]
         );
         return redirect('servico');
@@ -89,9 +87,8 @@ class ServicoController extends Controller
             'nome' => "required|max:100",
             'contato' => "nullable",
             'email' => "required|max:200",
-            'valor_estimado' => "nullable",
             'detalhamento' => "required|max:300",
-            
+
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -107,7 +104,6 @@ class ServicoController extends Controller
                 'contato' => $request->contato,
                 'email' => $request->email,
                 'detalhamento' => $request->detalhamento,
-                'valor_estimado'=> $request->valor_estimado,
             ]
         );
 
@@ -130,7 +126,7 @@ class ServicoController extends Controller
     {
         return view("servico.chart", ["servicochart" => $servicochart->build()]);
     }
-    
+
     public function search(Request $request)
     {
         if (!empty($request->nome)) {
