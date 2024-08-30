@@ -68,7 +68,7 @@
                 <a class="nav-link" href="{{ url('usuario') }}">Perfil</a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link" href="{{ url('auth.login') }}">Login</a>
+                 <a class="nav-link" href="{{ url('login') }}">Login</a>
             </li>
         </ul>
         <!--<ul class="navbar-nav flex-row">
