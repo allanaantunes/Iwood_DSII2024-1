@@ -46,7 +46,8 @@
 
 <body>
     <nav class="navbar navbar-expand">
-        <img src="{{ asset('img/LogoSite.png') }}" alt="Logo" width="135" height="50" class="d-inline-block align-text-top">
+        <img src="{{ asset('img/LogoSite.png') }}" alt="Logo" width="135" height="50"
+            class="d-inline-block align-text-top">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{{ url('/') }}">Início</a>
@@ -61,15 +62,34 @@
                 <a class="nav-link" href="{{ url('orcamento') }}">Orçamento</a>
             </li>
             <li class="nav-item">
-                        <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
+                <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('usuario') }}">Perfil</a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link" href="{{ url('login') }}">Login</a>
             </li>
+            <li class="nav-item">
+                @if (Route::has('login'))
+                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                        @auth
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+<li>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="nav-link">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </li>
+            </li>
+
+            </form>
         </ul>
         <!--<ul class="navbar-nav flex-row">
             <li class="nav-item">
@@ -88,21 +108,24 @@
                 <img src="{{ asset('img/bem-vindo.png') }}" class="d-block w-100 carousel-image" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://emobile.com.br/site/wp-content/uploads/2022/03/Dia-do-Marceneiro-Marcenaria-formao.jpg" class="d-block w-100 carousel-image" alt="...">
+                <img src="https://emobile.com.br/site/wp-content/uploads/2022/03/Dia-do-Marceneiro-Marcenaria-formao.jpg"
+                    class="d-block w-100 carousel-image" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Conheça e Explore nosso Site:</h5>
                     <p>Aqui, talento encontra demanda, e juntos criamos obras de arte.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://www.quadrilatero.ind.br/img/gco-images/87-pt-br.jpg" class="d-block w-100 carousel-image" alt="...">
+                <img src="https://www.quadrilatero.ind.br/img/gco-images/87-pt-br.jpg"
+                    class="d-block w-100 carousel-image" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Conheça e Explore nosso Site:</h5>
                     <p>Do projeto à realização, conectamos talento com oportunidade.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://cdn.pixabay.com/photo/2018/04/22/04/28/wood-3340125_1280.jpg" class="d-block w-100 carousel-image" alt="...">
+                <img src="https://cdn.pixabay.com/photo/2018/04/22/04/28/wood-3340125_1280.jpg"
+                    class="d-block w-100 carousel-image" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Conheça e Explore nosso Site:</h5>
                     <p>Juntos, construímos mais do que apenas casas - construímos lares.</p>
@@ -122,13 +145,19 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <p class="lead" style="text-align: justify;">
-                    Bem-vindo ao Iwood, sua plataforma dedicada a conectar prestadores de serviço de marcenaria, carpintaria e afins aos clientes em busca de trabalhos artesanais de alta qualidade. Somos a ponte entre artesãos talentosos e clientes exigentes, facilitando a realização de projetos personalizados e garantindo resultados excepcionais.
+                    Bem-vindo ao Iwood, sua plataforma dedicada a conectar prestadores de serviço de marcenaria,
+                    carpintaria e afins aos clientes em busca de trabalhos artesanais de alta qualidade. Somos a ponte
+                    entre artesãos talentosos e clientes exigentes, facilitando a realização de projetos personalizados
+                    e garantindo resultados excepcionais.
                 </p>
                 <p class="lead" style="text-align: justify;">
-                    Explore uma variedade de serviços sob medida, desde móveis rústicos encantadores até peças de design contemporâneo, tudo criado com habilidade artesanal e atenção aos detalhes. Encontre profissionais experientes e apaixonados prontos para transformar suas ideias em realidade.
+                    Explore uma variedade de serviços sob medida, desde móveis rústicos encantadores até peças de design
+                    contemporâneo, tudo criado com habilidade artesanal e atenção aos detalhes. Encontre profissionais
+                    experientes e apaixonados prontos para transformar suas ideias em realidade.
                 </p>
                 <p class="lead" style="text-align: justify;">
-                    Simplesmente navegue, conecte-se e transforme seus espaços com o talento dos nossos artesãos. Seja bem-vindo à sua nova fonte de inspiração e qualidade em marcenaria e carpintaria.
+                    Simplesmente navegue, conecte-se e transforme seus espaços com o talento dos nossos artesãos. Seja
+                    bem-vindo à sua nova fonte de inspiração e qualidade em marcenaria e carpintaria.
                 </p>
             </div>
 

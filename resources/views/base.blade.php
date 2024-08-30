@@ -74,6 +74,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
                     </li>
+                    <li class="nav-item">
+                        @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                @else
+                                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="nav-link">Register</a>
+                                    @endif
+                                @endauth
+                            </div>
+                        @endif
+                    </li>
                 </ul>
                 <!--<ul class="navbar-nav flex-row">
             <li class="nav-item">
